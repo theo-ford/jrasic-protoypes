@@ -21,7 +21,7 @@ import image3landscape from "../img/03_landscape.jpg";
 
 import image1square from "../img/01_square.jpg";
 import image2square from "../img/02_square.jpg";
-import image3square from "../img/03_square.jpg";
+// import image3square from "../img/03_square.jpg";
 
 import Video1Portrait from "../img/01_portrait.mp4";
 import Video2Portrait from "../img/02_portrait.mp4";
