@@ -15,29 +15,26 @@ import image1 from "../img/01.jpg";
 import image2 from "../img/02.jpg";
 import image3 from "../img/03.jpg";
 
+import Video1 from "../img/01.mp4";
+import Video2 from "../img/02.mp4";
+import Video3 from "../img/03.mp4";
+
 const PageCon = styled.div`
   height: 100vh;
   width: 100vw;
   /* background-color: red; */
   position: absolute;
 `;
-const LogoCon = styled.div`
-  position: fixed;
-  width: 175px;
-  top: 14px;
-  left: 14px;
-  img {
-    width: 100%;
-  }
-`;
+
 const TextCon = styled.div`
   position: absolute;
-  bottom: 14px;
+  top: 50vh;
 
   /* background-color: blue; */
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
   grid-column-gap: 14px;
   margin-left: 14px;
   grid-row-gap: 0;
@@ -52,45 +49,67 @@ const TextCon = styled.div`
   }
 `;
 
+const ContactCon = styled.div`
+  grid-column: span 1;
+`;
+
 const AboutCon = styled.div`
-  grid-column: span 4;
+  grid-column: 3 / span 4;
 `;
 const ClientsCon = styled.div`
   grid-column: span 4;
 `;
-const ContactCon = styled.div`
-  grid-column: span 1;
-`;
+
 const StudioCon = styled.div`
-  grid-column: 15 / span 1;
+  grid-column: 12 / span 1;
 `;
 const FarmCon = styled.div`
-  grid-column: 16 / span 1;
+  grid-column: 13 / span 1;
+`;
+const CreditsCon = styled.div`
+  grid-column: 15 / span 2;
+  p {
+    font-size: 9px;
+  }
 `;
 const NumberConCon = styled.div`
-  display: grid;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+
   position: absolute;
+  bottom: 10px;
+
   /* background-color: white; */
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  grid-column-gap: 14px;
+  margin-left: 14px;
+  grid-row-gap: 0;
+  width: calc(100% - 28px);
+  z-index: 30;
+`;
+
+const LogoCon = styled.div`
+  grid-column: span 1;
+  img {
+    width: 100%;
+  }
 `;
 const NumberCon = styled.div`
-  /* width: 400px;
-  height: 200px; */
-  /* background-color: grey; */
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  grid-column: 12 / span 4;
 `;
 
 const AllNumbers = styled.p`
   font-variation-settings: "wght" 420;
-  font-size: 48px;
+  font-size: 24px;
   color: black;
   margin: 0;
   padding: 0;
+  position: absolute;
+  bottom: 10px;
 `;
 
 const NumberSpan = styled.span`
@@ -109,12 +128,13 @@ const ImgsCon = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
   /* grid-column-gap: 14px; */
   /* margin-left: 14px; */
   grid-row-gap: 0;
   width: calc(100%);
 
-  z-index: -1;
+  z-index: 20;
 `;
 
 const handlePosition = columnProp => {
@@ -209,30 +229,44 @@ const ImgTest = styled.img`
   `}
 `;
 
+const Video = styled.video`
+  /* width: 100%;
+  height: 100%;
+  object-fit: cover; */
+
+  /* width: 200px;
+  height: auto;
+  position: relative;
+  float: left; */
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 const Index = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  const increaseCounter = useRef();
+  // const increaseCounter = useRef();
 
-  function handleCounterIncrease() {
-    setActiveIndex(prevState => prevState + 1);
-  }
+  // function handleCounterIncrease() {
+  //   setActiveIndex(prevState => prevState + 1);
+  // }
 
-  useEffect(() => {
-    console.log(activeIndex);
-    if (activeIndex >= 10) {
-      // clearInterval(increaseCounter.current);
-      setActiveIndex(0);
-    }
-  }, [activeIndex]);
+  // useEffect(() => {
+  //   console.log(activeIndex);
+  //   if (activeIndex >= 10) {
+  //     // clearInterval(increaseCounter.current);
+  //     setActiveIndex(0);
+  //   }
+  // }, [activeIndex]);
 
-  useEffect(() => {
-    increaseCounter.current = setInterval(handleCounterIncrease, 5000);
+  // useEffect(() => {
+  //   increaseCounter.current = setInterval(handleCounterIncrease, 5000);
 
-    return () => clearInterval(increaseCounter.current);
-  }, []);
+  //   return () => clearInterval(increaseCounter.current);
+  // }, []);
 
   const activeIndexFunction = (e, index) => {
     e.persist();
@@ -240,6 +274,7 @@ const Index = ({ data }) => {
     // console.log(index);
     setActiveIndex(index);
   };
+
   const numbers = numbersArray.map(index => {
     // console.log(index);
     if (index === activeIndex) {
@@ -333,21 +368,128 @@ const Index = ({ data }) => {
     );
   });
 
+  const videoArray = [
+    {
+      id: 0,
+      video: Video1,
+      column: 13,
+    },
+    {
+      id: 1,
+      video: Video2,
+      column: 2,
+    },
+    {
+      id: 2,
+      video: Video3,
+      column: 6,
+    },
+    {
+      id: 3,
+      video: Video1,
+      column: 1,
+    },
+    {
+      id: 4,
+      video: Video2,
+      column: 7,
+    },
+    {
+      id: 5,
+      video: Video3,
+      column: 5,
+    },
+    {
+      id: 6,
+      video: Video1,
+      column: 3,
+    },
+    {
+      id: 7,
+      video: Video2,
+      column: 9,
+    },
+    {
+      id: 8,
+      video: Video3,
+      column: 2,
+    },
+    {
+      id: 9,
+      video: Video1,
+      column: 11,
+    },
+  ];
+
+  const videos = videoArray.map(index => {
+    const [imgState, setImgState] = useState(false);
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+      if (activeIndex === index.id) {
+        setImgState(true);
+        // singleVideoRef.current.load();
+        // singleVideoRef.current.play();
+      } else {
+        setImgState(false);
+      }
+    }, [activeIndex]);
+
+    return (
+      <>
+        <ImgCon columnProp={index.column} activeProp={imgState}>
+          <Video muted loop autoPlay playsInline ref={videoRef}>
+            <source type="video/mp4" src={index.video}></source>
+          </Video>
+        </ImgCon>
+      </>
+    );
+  });
+
+  const VideoSingle = () => {
+    const singleVideoRef = useRef(null);
+
+    // useEffect(() => {
+    //   console.log('testing')
+    //   // singleVideoRef.current.load();
+    //   // singleVideoRef.current.play();
+    // }, []);
+
+    // useEffect(() => {
+    //   console.log("testing");
+    //   // singleVideoRef.current.load();
+    //   // singleVideoRef.current.play();
+    // }, []);
+
+    return (
+      <>
+        <Video muted loop autoPlay playsInline ref={singleVideoRef}>
+          <source type="video/mp4" src={Video1}></source>
+        </Video>
+      </>
+    );
+  };
+
   return (
     <>
       <Helmet>
         <title>01-idea1</title>
       </Helmet>
+
       <PageCon>
-        <LogoCon>
-          <img src={logo}></img>
-        </LogoCon>
+        {/* <VideoSingle></VideoSingle> */}
         <NumberConCon>
+          <LogoCon>
+            <img src={logo}></img>
+          </LogoCon>
           <NumberCon>
             <AllNumbers>{numbers}</AllNumbers>
           </NumberCon>
         </NumberConCon>
         <TextCon>
+          <ContactCon>
+            <p>info@jrasic.com @jrasic 0208 8756 6342</p>
+          </ContactCon>
           <AboutCon>
             <p>
               Jrasic is floral design studio founded by Jessie Booth, serving
@@ -364,9 +506,7 @@ const Index = ({ data }) => {
               Self-Portrait, Skims.
             </p>
           </ClientsCon>
-          <ContactCon>
-            <p>info@jrasic.com @jrasic 0208 8756 6342</p>
-          </ContactCon>
+
           <StudioCon>
             <p>
               studio<br></br>
@@ -379,36 +519,16 @@ const Index = ({ data }) => {
               127 dorset way dorset tw7 6ga
             </p>
           </FarmCon>
+          <CreditsCon>
+            <p>
+              logo designed by margot leveque.<br></br> art-direction, site
+              design & development by theo ford.{" "}
+            </p>
+          </CreditsCon>
         </TextCon>
         <ImgsCon>
-          {imgs}
-          {/* <ImgCon columnProp={1} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={2} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={3} activeProp={false}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={4} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={5} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={6} activeProp={false}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={7} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={8} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={9} activeProp={true}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon> */}
+          {videos}
+          {/* {imgs} */}
         </ImgsCon>
       </PageCon>
     </>
