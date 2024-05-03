@@ -45,13 +45,6 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
