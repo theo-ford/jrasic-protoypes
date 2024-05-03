@@ -1,0 +1,20 @@
+{
+  "Main": {
+    "featured_projects_group": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "featured_project": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["project"],
+              "label": "Featured Project"
+            }
+          }
+        },
+        "label": "Featured Projects Group"
+      }
+    }
+  }
+}

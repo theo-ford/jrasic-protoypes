@@ -1,0 +1,69 @@
+{
+  "Main": {
+    "homepage_intro": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Homepage Intro"
+      }
+    },
+    "email": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Email"
+      }
+    },
+    "phone_number": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Phone Number"
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Address"
+      }
+    },
+    "instagram": {
+      "type": "Link",
+      "config": {
+        "label": "Instagram",
+        "allowTargetBlank": true,
+        "select": null
+      }
+    },
+    "twitter": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Twitter",
+        "select": null
+      }
+    },
+    "date_time": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Date Time"
+      }
+    },
+    "business_information": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink",
+        "label": "Business Information"
+      }
+    },
+    "about": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,hyperlink",
+        "label": "About"
+      }
+    }
+  }
+}
