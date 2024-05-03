@@ -72,7 +72,7 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>01-idea1</title>
+        <title>01-idea2-black</title>
       </Helmet>
       <PageCon>
         <NumberConCon>

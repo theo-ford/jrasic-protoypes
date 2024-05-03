@@ -11,9 +11,9 @@ import { useMediaQuery } from "../components/tf/media-query";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import logo from "../img/logo.svg";
 
-import image1 from "../img/01.jpg";
-import image2 from "../img/02.jpg";
-import image3 from "../img/03.jpg";
+import image1 from "../img/01_portrait.jpg";
+import image2 from "../img/02_portrait.jpg";
+import image3 from "../img/03_portrait.jpg";
 
 const PageCon = styled.div`
   height: 100vh;
@@ -336,7 +336,7 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>01-idea1</title>
+        <title>02-idea2-img</title>
       </Helmet>
       <PageCon>
         <LogoCon>
