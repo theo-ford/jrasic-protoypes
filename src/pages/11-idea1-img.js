@@ -188,6 +188,7 @@ const ImgTest = styled.img`
 `;
 
 const Index = ({ data }) => {
+  console.log("hello world");
   const [activeIndex, setActiveIndex] = useState(0);
 
   const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
