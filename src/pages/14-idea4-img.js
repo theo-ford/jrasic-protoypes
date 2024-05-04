@@ -809,7 +809,7 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>12-idea4</title>
+        <title>14-idea4-img</title>
       </Helmet>
       <GridHead>
         <LogoCon>
