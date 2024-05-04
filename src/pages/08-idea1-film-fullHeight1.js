@@ -467,7 +467,7 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>08-idea1-film</title>
+        <title>08-idea1-film-fullHeight1</title>
       </Helmet>
 
       <PageCon>
