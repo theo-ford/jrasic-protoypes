@@ -36,22 +36,29 @@ const PageCon = styled.div`
 `;
 const LogoCon = styled.div`
   position: fixed;
-  width: 175px;
+  width: 120px;
   top: 14px;
   left: 14px;
   img {
     width: 100%;
   }
+  display: block;
+  ${({ activeAboutProp }) =>
+    activeAboutProp &&
+    `
+    display: none;  
+  `};
 `;
 const TextCon = styled.div`
   position: absolute;
-  bottom: 14px;
+  top: 14px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 14px;
   margin-left: 14px;
   grid-row-gap: 0;
   width: calc(100% - 28px);
+  display: none;
 
   p {
     font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
@@ -60,27 +67,43 @@ const TextCon = styled.div`
     color: black;
     line-height: 115%;
   }
+  ${({ activeAboutProp }) =>
+    activeAboutProp &&
+    `
+    display: grid;  
+  `}
 `;
 
 const AboutCon = styled.div`
-  grid-column: span 4;
+  grid-column: span 16;
+  margin-bottom: 10px;
 `;
 const ClientsCon = styled.div`
-  grid-column: span 4;
+  grid-column: span 16;
+  margin-bottom: 10px;
 `;
 const ContactCon = styled.div`
-  grid-column: span 2;
-`;
-const NumberCon = styled.div`
-  grid-column: span 2;
-`;
-const StudioCon = styled.div`
-  grid-column: 15 / span 1;
-`;
-const FarmCon = styled.div`
-  grid-column: 16 / span 1;
+  grid-column: span 16;
+  margin-bottom: 10px;
 `;
 
+const StudioCon = styled.div`
+  grid-column: span 5;
+`;
+const FarmCon = styled.div`
+  grid-column: span 8;
+`;
+const MetaCon = styled.div`
+  margin-top: 20px;
+  grid-column: span 16;
+  p {
+    font-size: 9px;
+  }
+`;
+
+const NumberCon = styled.div`
+  grid-column: span 8;
+`;
 const AllNumbers = styled.p`
   font-variation-settings: "wght" 600;
 `;
@@ -176,30 +199,29 @@ const Video = styled.video`
   height: 100%;
   object-fit: cover;
 `;
+
+const MobileFooterCon = styled.div`
+  position: absolute;
+  bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 14px;
+  margin-left: 14px;
+  grid-row-gap: 0;
+  width: calc(100% - 28px);
+  p {
+    font-size: 12px;
+  }
+`;
+const InfoButtonCon = styled.div`
+  grid-column: 12 / span 4;
+`;
+
 const Index = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeAbout, setActiveAbout] = useState(false);
 
   const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  const increaseCounter = useRef();
-
-  function handleCounterIncrease() {
-    setActiveIndex(prevState => prevState + 1);
-  }
-
-  useEffect(() => {
-    console.log(activeIndex);
-    if (activeIndex >= 10) {
-      // clearInterval(increaseCounter.current);
-      setActiveIndex(0);
-    }
-  }, [activeIndex]);
-
-  useEffect(() => {
-    increaseCounter.current = setInterval(handleCounterIncrease, 3000);
-
-    return () => clearInterval(increaseCounter.current);
-  }, []);
 
   const activeIndexFunction = (e, index) => {
     e.persist();
@@ -314,18 +336,36 @@ const Index = ({ data }) => {
     );
   });
 
+  const activeAboutFunc = (e, index) => {
+    e.persist();
+
+    if (!activeAbout) {
+      setActiveAbout(true);
+    } else {
+      setActiveAbout(false);
+    }
+  };
+
   return (
     <>
       <Helmet>
-        <title>21-idea5-2-altType-auto/</title>
+        <title>22-idea5-2-altType-mobile</title>
       </Helmet>
 
       <PageCon>
-        <LogoCon>
+        <LogoCon activeAboutProp={activeAbout}>
           <img src={logo}></img>
         </LogoCon>
+        <MobileFooterCon>
+          <NumberCon>
+            <AllNumbers>{numbers}</AllNumbers>
+          </NumberCon>
+          <InfoButtonCon onClick={activeAboutFunc}>
+            <p>[info]</p>
+          </InfoButtonCon>
+        </MobileFooterCon>
 
-        <TextCon>
+        <TextCon activeAboutProp={activeAbout}>
           <AboutCon>
             <p>
               Jrasic is floral design studio founded by Jessie Booth, serving
@@ -347,21 +387,26 @@ const Index = ({ data }) => {
               info@jrasic.com<br></br> @jrasic<br></br> 0208 8756 6342
             </p>
           </ContactCon>
-          <NumberCon>
-            <AllNumbers>{numbers}</AllNumbers>
-          </NumberCon>
+
           <StudioCon>
             <p>
               studio<br></br>
-              128 latona road london se15 6ag
+              128 latona road<br></br> london se15 6ag
             </p>
           </StudioCon>
           <FarmCon>
             <p>
               farm <br></br>
-              127 dorset way dorset tw7 6ga
+              127 dorset way<br></br> dorset tw7 6ga
             </p>
           </FarmCon>
+          <MetaCon>
+            <p>
+              logo designed by margot leveque. art-direction, site design &
+              development by theo ford. videography by fredie taylor. set design
+              by dasie azis.
+            </p>
+          </MetaCon>
         </TextCon>
         <ImgsCon>{videos}</ImgsCon>
       </PageCon>
