@@ -46,9 +46,6 @@ const LogoCon = styled.div`
 const TextCon = styled.div`
   position: absolute;
   bottom: 14px;
-
-  /* background-color: blue; */
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 14px;
@@ -72,7 +69,10 @@ const ClientsCon = styled.div`
   grid-column: span 4;
 `;
 const ContactCon = styled.div`
-  grid-column: span 1;
+  grid-column: span 2;
+`;
+const NumberCon = styled.div`
+  grid-column: span 2;
 `;
 const StudioCon = styled.div`
   grid-column: 15 / span 1;
@@ -80,46 +80,25 @@ const StudioCon = styled.div`
 const FarmCon = styled.div`
   grid-column: 16 / span 1;
 `;
-const NumberConCon = styled.div`
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  /* background-color: white; */
-  align-items: center;
-  justify-content: center;
-`;
-const NumberCon = styled.div`
-  /* width: 400px;
-  height: 200px; */
-  /* background-color: grey; */
-  display: grid;
-  align-items: center;
-  justify-content: center;
-`;
 
 const AllNumbers = styled.p`
-  font-variation-settings: "wght" 420;
-  font-size: 48px;
-  color: black;
-  margin: 0;
-  padding: 0;
+  font-variation-settings: "wght" 600;
 `;
 
 const NumberSpan = styled.span`
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
   cursor: pointer;
+  font-variation-settings: "wght" 700;
 `;
-
 const ImgsCon = styled.div`
-  position: absolute;
-  width: 100vh;
+  position: relative;
+  float: right;
+  width: 125vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr /*4*/ 1fr 1fr 1fr 1fr /*8*/ 1fr 1fr 1fr 1fr /*12*/ 1fr 1fr 1fr 1fr /*16*/ 1fr 1fr 1fr 1fr /*20*/;
   grid-row-gap: 0;
-  width: calc(100%);
   z-index: -1;
 `;
 
@@ -151,6 +130,20 @@ const handlePosition = columnProp => {
       return "12";
     case 13:
       return "13";
+    case 14:
+      return "14";
+    case 15:
+      return "15";
+    case 16:
+      return "16";
+    case 17:
+      return "17";
+    case 18:
+      return "18";
+    case 20:
+      return "20";
+    case 21:
+      return "21";
   }
 };
 
@@ -188,6 +181,26 @@ const Index = ({ data }) => {
 
   const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  const increaseCounter = useRef();
+
+  function handleCounterIncrease() {
+    setActiveIndex(prevState => prevState + 1);
+  }
+
+  useEffect(() => {
+    console.log(activeIndex);
+    if (activeIndex >= 10) {
+      // clearInterval(increaseCounter.current);
+      setActiveIndex(0);
+    }
+  }, [activeIndex]);
+
+  useEffect(() => {
+    increaseCounter.current = setInterval(handleCounterIncrease, 3000);
+
+    return () => clearInterval(increaseCounter.current);
+  }, []);
+
   const activeIndexFunction = (e, index) => {
     e.persist();
     setActiveIndex(index);
@@ -212,63 +225,63 @@ const Index = ({ data }) => {
   const videoArray = [
     {
       id: 0,
-      video: Video1Square,
+      video: Video2Square,
       orientation: "square",
-      column: 1,
+      column: 5,
     },
     {
       id: 1,
-      video: Video2Square,
-      orientation: "square",
+      video: Video3Landscape,
+      orientation: "landscape",
       column: 9,
     },
     {
       id: 2,
-      video: Video3Landscape,
-      orientation: "square",
-      column: 1,
+      video: Video1Portrait,
+      orientation: "portrait",
+      column: 5,
     },
     {
       id: 3,
       video: Video1Square,
       orientation: "square",
-      column: 9,
+      column: 13,
     },
     {
       id: 4,
-      video: Video2Square,
-      orientation: "square",
+      video: Video2Landscape,
+      orientation: "landscape",
       column: 1,
     },
     {
       id: 5,
-      video: Video3Square,
-      orientation: "square",
-      column: 9,
+      video: Video2Portrait,
+      orientation: "portrait",
+      column: 16,
     },
     {
       id: 6,
-      video: Video1Square,
-      orientation: "square",
-      column: 1,
-    },
-    {
-      id: 7,
-      video: Video2Square,
-      orientation: "square",
+      video: Video3Landscape,
+      orientation: "landscape",
       column: 9,
     },
     {
-      id: 8,
-      video: Video3Square,
+      id: 7,
+      video: Video1Square,
       orientation: "square",
-      column: 1,
+      column: 5,
+    },
+    {
+      id: 8,
+      video: Video3Portrait,
+      orientation: "portrait",
+      column: 5,
     },
     {
       id: 9,
       video: Video1Square,
       orientation: "square",
-      column: 9,
+      column: 13,
     },
   ];
 
@@ -304,18 +317,14 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>16-idea5-3</title>
+        <title>20-idea5-2-altType</title>
       </Helmet>
 
       <PageCon>
         <LogoCon>
           <img src={logo}></img>
         </LogoCon>
-        <NumberConCon>
-          <NumberCon>
-            <AllNumbers>{numbers}</AllNumbers>
-          </NumberCon>
-        </NumberConCon>
+
         <TextCon>
           <AboutCon>
             <p>
@@ -334,8 +343,13 @@ const Index = ({ data }) => {
             </p>
           </ClientsCon>
           <ContactCon>
-            <p>info@jrasic.com @jrasic 0208 8756 6342</p>
+            <p>
+              info@jrasic.com<br></br> @jrasic<br></br> 0208 8756 6342
+            </p>
           </ContactCon>
+          <NumberCon>
+            <AllNumbers>{numbers}</AllNumbers>
+          </NumberCon>
           <StudioCon>
             <p>
               studio<br></br>

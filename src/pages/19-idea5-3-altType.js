@@ -46,9 +46,6 @@ const LogoCon = styled.div`
 const TextCon = styled.div`
   position: absolute;
   bottom: 14px;
-
-  /* background-color: blue; */
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 14px;
@@ -72,7 +69,10 @@ const ClientsCon = styled.div`
   grid-column: span 4;
 `;
 const ContactCon = styled.div`
-  grid-column: span 1;
+  grid-column: span 2;
+`;
+const NumberCon = styled.div`
+  grid-column: span 2;
 `;
 const StudioCon = styled.div`
   grid-column: 15 / span 1;
@@ -80,38 +80,17 @@ const StudioCon = styled.div`
 const FarmCon = styled.div`
   grid-column: 16 / span 1;
 `;
-const NumberConCon = styled.div`
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  /* background-color: white; */
-  align-items: center;
-  justify-content: center;
-`;
-const NumberCon = styled.div`
-  /* width: 400px;
-  height: 200px; */
-  /* background-color: grey; */
-  display: grid;
-  align-items: center;
-  justify-content: center;
-`;
 
 const AllNumbers = styled.p`
-  font-variation-settings: "wght" 420;
-  font-size: 48px;
-  color: black;
-  margin: 0;
-  padding: 0;
+  font-variation-settings: "wght" 600;
 `;
 
 const NumberSpan = styled.span`
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
   cursor: pointer;
+  font-variation-settings: "wght" 700;
 `;
-
 const ImgsCon = styled.div`
   position: absolute;
   width: 100vh;
@@ -304,18 +283,14 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>16-idea5-3</title>
+        <title>19-idea5-3-altType</title>
       </Helmet>
 
       <PageCon>
         <LogoCon>
           <img src={logo}></img>
         </LogoCon>
-        <NumberConCon>
-          <NumberCon>
-            <AllNumbers>{numbers}</AllNumbers>
-          </NumberCon>
-        </NumberConCon>
+
         <TextCon>
           <AboutCon>
             <p>
@@ -334,8 +309,13 @@ const Index = ({ data }) => {
             </p>
           </ClientsCon>
           <ContactCon>
-            <p>info@jrasic.com @jrasic 0208 8756 6342</p>
+            <p>
+              info@jrasic.com<br></br> @jrasic<br></br> 0208 8756 6342
+            </p>
           </ContactCon>
+          <NumberCon>
+            <AllNumbers>{numbers}</AllNumbers>
+          </NumberCon>
           <StudioCon>
             <p>
               studio<br></br>

@@ -282,7 +282,7 @@ const Index = ({ data }) => {
       id: 9,
       video: Video1Square,
       orientation: "square",
-      column: 13,
+      column: 10,
     },
   ];
 
@@ -318,7 +318,7 @@ const Index = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>09-idea1-film-fullHeight2</title>
+        <title>18-idea5-1</title>
       </Helmet>
 
       <PageCon>
@@ -363,37 +363,7 @@ const Index = ({ data }) => {
             </p>
           </FarmCon>
         </TextCon>
-        <ImgsCon>
-          {videos}
-          {/* {imgs} */}
-          {/* <ImgCon columnProp={1} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={2} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={3} activeProp={false}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={4} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={5} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={6} activeProp={false}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={7} activeProp={false}>
-            <StaticImage src={"../img/01.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={8} activeProp={false}>
-            <StaticImage src={"../img/02.jpg"} />
-          </ImgCon>
-          <ImgCon columnProp={9} activeProp={true}>
-            <StaticImage src={"../img/03.jpg"} />
-          </ImgCon> */}
-        </ImgsCon>
+        <ImgsCon>{videos}</ImgsCon>
       </PageCon>
     </>
   );
