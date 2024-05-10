@@ -7,6 +7,7 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
+import Div100vh from "react-div-100vh";
 
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import logo from "../img/logo.svg";
@@ -28,7 +29,7 @@ import Video2Square from "../img/02_square.mp4";
 import Video3Square from "../img/03_square.mp4";
 
 const PageCon = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   /* background-color: red; */
   position: absolute;
@@ -351,65 +352,66 @@ const Index = ({ data }) => {
       <Helmet>
         <title>22-idea5-2-altType-mobile</title>
       </Helmet>
+      <Div100vh>
+        <PageCon>
+          <LogoCon activeAboutProp={activeAbout}>
+            <img src={logo}></img>
+          </LogoCon>
+          <MobileFooterCon>
+            <NumberCon>
+              <AllNumbers>{numbers}</AllNumbers>
+            </NumberCon>
+            <InfoButtonCon onClick={activeAboutFunc}>
+              <p>[info]</p>
+            </InfoButtonCon>
+          </MobileFooterCon>
 
-      <PageCon>
-        <LogoCon activeAboutProp={activeAbout}>
-          <img src={logo}></img>
-        </LogoCon>
-        <MobileFooterCon>
-          <NumberCon>
-            <AllNumbers>{numbers}</AllNumbers>
-          </NumberCon>
-          <InfoButtonCon onClick={activeAboutFunc}>
-            <p>[info]</p>
-          </InfoButtonCon>
-        </MobileFooterCon>
+          <TextCon activeAboutProp={activeAbout}>
+            <AboutCon>
+              <p>
+                Jrasic is floral design studio founded by Jessie Booth, serving
+                clients from across the fashion, events and hospitality
+                industry. Based between London and Dorset, much of our produce
+                is grown sustainably on our farm.
+              </p>
+            </AboutCon>
+            <ClientsCon>
+              <p>
+                Select Clients: Aesop, Acne, Beyonce, Burberry, Cartier, Clame
+                Clientielle, Chanel, Cornell Windlin, Dazed, Elle, Huntington
+                Gardens, Little Form Inc, Lowe, Oscar Neurath, Otl Aicher,
+                Self-Portrait, Skims.
+              </p>
+            </ClientsCon>
+            <ContactCon>
+              <p>
+                info@jrasic.com<br></br> @jrasic<br></br> 0208 8756 6342
+              </p>
+            </ContactCon>
 
-        <TextCon activeAboutProp={activeAbout}>
-          <AboutCon>
-            <p>
-              Jrasic is floral design studio founded by Jessie Booth, serving
-              clients from across the fashion, events and hospitality industry.
-              Based between London and Dorset, much of our produce is grown
-              sustainably on our farm.
-            </p>
-          </AboutCon>
-          <ClientsCon>
-            <p>
-              Select Clients: Aesop, Acne, Beyonce, Burberry, Cartier, Clame
-              Clientielle, Chanel, Cornell Windlin, Dazed, Elle, Huntington
-              Gardens, Little Form Inc, Lowe, Oscar Neurath, Otl Aicher,
-              Self-Portrait, Skims.
-            </p>
-          </ClientsCon>
-          <ContactCon>
-            <p>
-              info@jrasic.com<br></br> @jrasic<br></br> 0208 8756 6342
-            </p>
-          </ContactCon>
-
-          <StudioCon>
-            <p>
-              studio<br></br>
-              128 latona road<br></br> london se15 6ag
-            </p>
-          </StudioCon>
-          <FarmCon>
-            <p>
-              farm <br></br>
-              127 dorset way<br></br> dorset tw7 6ga
-            </p>
-          </FarmCon>
-          <MetaCon>
-            <p>
-              logo designed by margot leveque. art-direction, site design &
-              development by theo ford. videography by fredie taylor. set design
-              by dasie azis.
-            </p>
-          </MetaCon>
-        </TextCon>
-        <ImgsCon>{videos}</ImgsCon>
-      </PageCon>
+            <StudioCon>
+              <p>
+                studio<br></br>
+                128 latona road<br></br> london se15 6ag
+              </p>
+            </StudioCon>
+            <FarmCon>
+              <p>
+                farm <br></br>
+                127 dorset way<br></br> dorset tw7 6ga
+              </p>
+            </FarmCon>
+            <MetaCon>
+              <p>
+                logo designed by margot leveque. art-direction, site design &
+                development by theo ford. videography by fredie taylor. set
+                design by dasie azis.
+              </p>
+            </MetaCon>
+          </TextCon>
+          <ImgsCon>{videos}</ImgsCon>
+        </PageCon>
+      </Div100vh>
     </>
   );
 };

@@ -225,51 +225,54 @@ const Index = ({ data }) => {
   const videoArray = [
     {
       id: 0,
-      video: Video2Square,
-      orientation: "square",
-      column: 5,
-    },
-    {
-      id: 1,
-      video: Video3Landscape,
-      orientation: "landscape",
-      column: 9,
-    },
-    {
-      id: 2,
-      video: Video1Portrait,
-      orientation: "portrait",
-      column: 5,
-    },
-    {
-      id: 3,
-      video: Video1Square,
-      orientation: "square",
-      column: 13,
-    },
-    {
-      id: 4,
+
       video: Video2Landscape,
       orientation: "landscape",
       column: 1,
     },
     {
-      id: 5,
-      video: Video2Portrait,
-      orientation: "portrait",
-      column: 16,
+      id: 1,
+
+      video: Video1Square,
+      orientation: "square",
+      column: 13,
     },
     {
-      id: 6,
+      id: 2,
+      video: Video2Portrait,
+      orientation: "portrait",
+      column: 5,
+    },
+    {
+      id: 3,
       video: Video3Landscape,
       orientation: "landscape",
       column: 9,
     },
     {
-      id: 7,
-      video: Video1Square,
+      id: 4,
+      video: Video2Square,
       orientation: "square",
       column: 5,
+    },
+    {
+      id: 5,
+      video: Video1Square,
+      orientation: "square",
+      column: 13,
+    },
+    {
+      id: 6,
+
+      video: Video2Portrait,
+      orientation: "portrait",
+      column: 16,
+    },
+    {
+      id: 7,
+      video: Video3Landscape,
+      orientation: "landscape",
+      column: 9,
     },
     {
       id: 8,
