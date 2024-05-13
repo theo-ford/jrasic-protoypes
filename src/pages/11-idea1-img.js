@@ -170,17 +170,30 @@ const ImgCon = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
+
   display: grid;
   align-items: end;
 `;
 const Video = styled.video`
   width: 100%;
 `;
-
+const handlePortraitHeight = orientationProp => {
+  switch (orientationProp) {
+    case "landscape":
+      return "auto";
+    case "portrait":
+      return "100%";
+    case "square":
+      return "auto";
+  }
+};
 const ImgTest = styled.img`
   width: 100%;
   /* height: 100%; */
   /* object-fit: cover; */
+  height: ${({ orientationProp }) => handlePortraitHeight(orientationProp)};
+  object-fit: cover;
+
   ${({ activeProp }) =>
     activeProp &&
     `
@@ -199,19 +212,19 @@ const Index = ({ data }) => {
     setActiveIndex(prevState => prevState + 1);
   }
 
-  useEffect(() => {
-    console.log(activeIndex);
-    if (activeIndex >= 10) {
-      // clearInterval(increaseCounter.current);
-      setActiveIndex(0);
-    }
-  }, [activeIndex]);
+  // useEffect(() => {
+  //   console.log(activeIndex);
+  //   if (activeIndex >= 10) {
+  //     // clearInterval(increaseCounter.current);
+  //     setActiveIndex(0);
+  //   }
+  // }, [activeIndex]);
 
-  useEffect(() => {
-    increaseCounter.current = setInterval(handleCounterIncrease, 3000);
+  // useEffect(() => {
+  //   increaseCounter.current = setInterval(handleCounterIncrease, 3000);
 
-    return () => clearInterval(increaseCounter.current);
-  }, []);
+  //   return () => clearInterval(increaseCounter.current);
+  // }, []);
 
   const activeIndexFunction = (e, index) => {
     e.persist();
@@ -316,7 +329,11 @@ const Index = ({ data }) => {
           activeProp={imgState}
         >
           <ImgCon>
-            <ImgTest src={index.img} activeProp={imgState}></ImgTest>
+            <ImgTest
+              orientationProp={index.orientation}
+              src={index.img}
+              activeProp={imgState}
+            ></ImgTest>
           </ImgCon>
         </ImgConCon>
       </>
