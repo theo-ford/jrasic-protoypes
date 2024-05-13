@@ -165,13 +165,31 @@ const ImgCon = styled.div`
   display: grid;
   align-items: end;
 `;
+
+const handlePortraitHeight = orientationProp => {
+  switch (orientationProp) {
+    case "landscape":
+      return "auto";
+    case "portrait":
+      return "100%";
+    case "square":
+      return "auto";
+  }
+};
+
 const Video = styled.video`
   width: 100%;
+  /* width: 120%; */
+  /* height: 120%; */
+  /* height: 100%; */
+  height: ${({ orientationProp }) => handlePortraitHeight(orientationProp)};
+  /* height: 100%; */
+  object-fit: cover;
 `;
 
 const ImgTest = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 120%;
   object-fit: cover;
   ${({ activeProp }) =>
     activeProp &&
@@ -190,19 +208,19 @@ const Index = ({ data }) => {
     setActiveIndex(prevState => prevState + 1);
   }
 
-  useEffect(() => {
-    console.log(activeIndex);
-    if (activeIndex >= 10) {
-      // clearInterval(increaseCounter.current);
-      setActiveIndex(0);
-    }
-  }, [activeIndex]);
+  // useEffect(() => {
+  //   console.log(activeIndex);
+  //   if (activeIndex >= 10) {
+  //     // clearInterval(increaseCounter.current);
+  //     setActiveIndex(0);
+  //   }
+  // }, [activeIndex]);
 
-  useEffect(() => {
-    increaseCounter.current = setInterval(handleCounterIncrease, 3000);
+  // useEffect(() => {
+  //   increaseCounter.current = setInterval(handleCounterIncrease, 3000);
 
-    return () => clearInterval(increaseCounter.current);
-  }, []);
+  //   return () => clearInterval(increaseCounter.current);
+  // }, []);
 
   const activeIndexFunction = (e, index) => {
     e.persist();
@@ -381,7 +399,14 @@ const Index = ({ data }) => {
           activeProp={imgState}
         >
           <ImgCon>
-            <Video muted loop autoPlay playsInline ref={videoRef}>
+            <Video
+              muted
+              loop
+              autoPlay
+              playsInline
+              ref={videoRef}
+              orientationProp={index.orientation}
+            >
               <source type="video/mp4" src={index.video}></source>
             </Video>
           </ImgCon>

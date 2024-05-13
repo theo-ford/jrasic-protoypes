@@ -56,6 +56,7 @@ const GridHead = styled.div`
   position: absolute;
   top: 0;
   margin-top: 11px;
+  z-index: 300000;
   p {
     font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
     font-variation-settings: "wght" 420;
@@ -292,7 +293,7 @@ const ImgConCon = styled.div`
   transition: opacity 0.4s ease;
 
   animation-name: ${blur_in};
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
   ${({ activeProp }) =>
@@ -446,7 +447,7 @@ const AboutText = styled.div`
     display: block;  
   `}
   animation-name: ${blur_in};
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
 `;
@@ -591,7 +592,7 @@ const ClientsText = styled.div`
     display: block;  
   `}
   animation-name: ${blur_in};
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
 `;
@@ -613,7 +614,7 @@ const Index = ({ data }) => {
   }, [activeIndex]);
 
   useEffect(() => {
-    increaseCounter.current = setInterval(handleCounterIncrease, 8000);
+    increaseCounter.current = setInterval(handleCounterIncrease, 4000);
 
     return () => clearInterval(increaseCounter.current);
   }, []);
